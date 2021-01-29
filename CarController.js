@@ -7,15 +7,15 @@ const alert = document.querySelector("#onsuccess");
 const modal = document.querySelector("#firstModal");
 
 
-const printNameToScreen = (carName) => {
+const printNameToScreen = (carBrand) => {
     let car = document.createElement("p"); // <p> </p>
-    let text = document.createTextNode(`${carName}`); // username
+    let text = document.createTextNode(`${carBrand}`); // username
     car.appendChild(text); // <p> username </p>
     peeps.appendChild(car);
 }
 
 const retrieveData = () => {
-    fetch("http://localhost:9092/swagger-ui/index.html")
+    fetch("http://localhost:9092/")
     .then((response) => {
         // check that the response is OK (i.e. 200)
         if(response.status !== 200){
@@ -47,7 +47,7 @@ const createCar = () => {
         make: makeValue
     }
 
-    fetch("http://localhost:9092/swagger-ui/index.html",{
+    fetch("http://localhost:9092/swagger-ui/car/create",{
         method: "POST", 
         body: JSON.stringify(data),
         headers:{
